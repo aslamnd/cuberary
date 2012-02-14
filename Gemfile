@@ -48,6 +48,7 @@ gem 'searcher'
 
 group :test, :development do
   gem 'rspec-rails', '~>2.8'
+  gem 'annotate', '~> 2.4.1.beta'
 end
 
 group :test do
