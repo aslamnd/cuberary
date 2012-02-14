@@ -2,6 +2,9 @@
 
 This is one of my pet project to manage and track my online learnings.
 
+## TODO
+* Change the Devise mail configuration in production.rb file
+
 
 ## License
 

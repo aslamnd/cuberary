@@ -32,11 +32,14 @@
             %a.brand{:href => "#"}Cuberary
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
+              %li= link_to "Sign up", new_user_registration_path
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
 
     .container
+
+      - flash.each do |key, value|
+        .alert{:class => "alert-#{key}"}= value
 
       .content
         .row

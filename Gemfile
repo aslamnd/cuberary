@@ -46,21 +46,30 @@ gem 'searcher'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :development do
+  gem 'heroku'
+end
+
 group :test, :development do
   gem 'rspec-rails', '~>2.8'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'shoulda'
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'spork'
+  gem 'email_spec'
+  gem 'launchy'
   gem 'guard-spork'
   gem 'guard-cucumber'
   gem 'guard-livereload'
-  gem 'factory_girl_rails'
-  gem 'email_spec'
-  gem 'launchy'
+  gem 'guard-bundler'
+  gem 'guard-shell'
+  gem 'rb-fsevent'
+  gem 'growl'
 end
