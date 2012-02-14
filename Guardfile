@@ -11,18 +11,19 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/spec_helper.rb') { :rspec }
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
+  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})
 end
 
-guard 'livereload' do
-  watch(%r{app/.+\.(erb|haml)})
-  watch(%r{app/helpers/.+\.rb})
-  watch(%r{(public/|app/assets).+\.(css|js|html)})
-  watch(%r{(app/assets/.+\.css)\.s[ac]ss}) { |m| m[1] }
-  watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
-  watch(%r{config/locales/.+\.yml})
-end
+#guard 'livereload' do
+  #watch(%r{app/.+\.(erb|haml)})
+  #watch(%r{app/helpers/.+\.rb})
+  #watch(%r{(public/|app/assets).+\.(css|js|html)})
+  #watch(%r{(app/assets/.+\.css)\.s[ac]ss}) { |m| m[1] }
+  #watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
+  #watch(%r{config/locales/.+\.yml})
+#end
 
-guard 'rspec', :version => 2, :cli => "--drb", :all_on_start => false, :all_after_pass => false do
+guard 'rspec', :version => 2, :cli => "--drb", :all_on_start => false, :all_after_pass => true do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -39,7 +40,7 @@ guard 'rspec', :version => 2, :cli => "--drb", :all_on_start => false, :all_afte
 end
 
 
-guard 'cucumber', :cli => "--drb", :all_on_start => false, :all_after_pass => false  do
+guard 'cucumber', :cli => "--drb", :all_on_start => false, :all_after_pass => true  do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
