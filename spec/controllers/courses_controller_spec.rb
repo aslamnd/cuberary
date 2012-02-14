@@ -2,8 +2,11 @@ require 'spec_helper'
 
 describe CoursesController do
 
+  let(:user) { create_user! }
   let(:course_attr) { Factory.attributes_for(:course) }
   let(:course) { Course.create!(course_attr) }
+
+  before { sign_in(:user, user) }
 
   describe "GET index" do
     before { get :index }

@@ -1,8 +1,10 @@
 class CoursesController < ApplicationController
 
+  before_filter :authenticate_user!
   before_filter :find_course, only: [:show]
 
   def index
+    @courses = Course.all
   end
 
   def show
