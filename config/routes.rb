@@ -1,5 +1,9 @@
 Cuberary::Application.routes.draw do
 
+  get "users/confirmation"
+
+  devise_for :users
+
   root :to => "pages#index"
 
   # The priority is based upon order of creation:

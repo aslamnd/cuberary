@@ -7,3 +7,27 @@ Then /^I should see "([^"]*)" within "([^"]*)"$/ do |content, element|
     page.should have_content(content)
   end
 end
+
+When /^I click the "([^"]*)" link$/ do |link|
+  click_link link
+end
+
+When /^I fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in field, :with => value
+end
+
+When /^I press "([^"]*)"$/ do |button|
+  click_button button
+end
+
+Then /^I should see "([^"]*)"$/ do |content|
+  page.should have_content(content)
+end
+
+Then /^I should not see "([^"]*)"$/ do |content|
+  page.should_not have_content(content)
+end
+
+When /^show me$/ do
+  save_and_open_page
+end
