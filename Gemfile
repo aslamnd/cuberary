@@ -57,6 +57,7 @@ group :test do
   gem 'spork'
   gem 'guard-spork'
   gem 'guard-cucumber'
+  gem 'guard-livereload'
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'launchy'
