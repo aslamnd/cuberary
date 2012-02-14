@@ -36,6 +36,7 @@
                 %li= link_to "Sign up", new_user_registration_path
                 %li= link_to "Sign in", new_user_session_path
               - authenticated? do
+                %li= link_to "Courses", courses_path
                 %li= link_to "Welcome, #{current_user.full_name}", "#"
                 %li= link_to "Sign out", destroy_user_session_path, :method => :delete
 
@@ -60,6 +61,9 @@
     
       %footer
         %p= copywrites 
+
+      = debug(params) if Rails.env.development?
+
     /
       Le javascript
       \==================================================
