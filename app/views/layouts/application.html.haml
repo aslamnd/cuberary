@@ -28,14 +28,21 @@
             %span.i-bar
             %span.i-bar
             %span.i-bar
-          %a.brand{:href => "#"}Cuberary
+          %h1
+            %a.brand{:href => root_url }Cuberary
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              - anonymous? do
+                %li= link_to "Sign up", new_user_registration_path
+                %li= link_to "Sign in", new_user_session_path
+              - authenticated? do
+                %li= link_to "Welcome, #{current_user.full_name}", "#"
+                %li= link_to "Sign out", destroy_user_session_path, :method => :delete
 
     .container
+
+      - flash.each do |key, value|
+        .alert{:class => "alert-#{key}"}= value
 
       .content
         .row
@@ -52,7 +59,7 @@
                 %li= link_to "Link 3", "/path3"
     
       %footer
-        %p &copy; Company 2012
+        %p= copywrites 
     /
       Le javascript
       \==================================================
