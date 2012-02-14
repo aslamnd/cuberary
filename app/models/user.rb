@@ -23,6 +23,7 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
+#  admin                  :boolean         default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -32,8 +33,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :first_name, :last_name, :admin,
+                  :email, :password, :password_confirmation, :remember_me
 
   validates :first_name,            presence: true
   validates :last_name,             presence: true

@@ -59,7 +59,7 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
-  gem 'shoulda'
+  gem 'shoulda', :git => 'https://github.com/thoughtbot/shoulda.git'
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'spork'

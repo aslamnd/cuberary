@@ -2,6 +2,8 @@ Cuberary::Application.routes.draw do
 
   get "users/confirmation"
 
+  resources :courses
+
   devise_for :users
 
   root :to => "pages#index"

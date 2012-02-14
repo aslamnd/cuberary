@@ -23,6 +23,7 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
+#  admin                  :boolean         default(FALSE)
 #
 
 require 'spec_helper'
@@ -30,7 +31,7 @@ require 'spec_helper'
 describe User do
 
   describe "attributes" do
-    it { should respond_to(:first_name, :last_name) }
+    it { should respond_to(:first_name, :last_name, :admin) }
     it { should respond_to(:email, :password, :password_confirmation, :remember_me) }
   end
 

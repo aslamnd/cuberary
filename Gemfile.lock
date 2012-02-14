@@ -7,6 +7,14 @@ GIT
       less-rails (~> 2.1.5)
       railties (>= 3.1)
 
+GIT
+  remote: https://github.com/thoughtbot/shoulda.git
+  revision: 80545637b957fc68a3b7be8993033d089913ac66
+  specs:
+    shoulda (3.0.0.beta2)
+      shoulda-context (~> 1.0.0.beta1)
+      shoulda-matchers (~> 1.0.0.beta1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -213,7 +221,8 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
-    shoulda (2.11.3)
+    shoulda-context (1.0.0)
+    shoulda-matchers (1.0.0)
     simple_form (1.5.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -271,7 +280,7 @@ DEPENDENCIES
   rspec-rails (~> 2.8)
   sass-rails (~> 3.2.3)
   searcher
-  shoulda
+  shoulda!
   simple_form
   spork
   sqlite3
