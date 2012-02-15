@@ -31,19 +31,31 @@
           %h1
             %a.brand{:href => root_url }Cuberary
           .container.nav-collapse
-            %ul.nav
-              - anonymous? do
+            - anonymous? do
+              %ul.nav.pull-right
                 %li= link_to "Sign up", new_user_registration_path
                 %li= link_to "Sign in", new_user_session_path
-              - authenticated? do
+            - authenticated? do
+              %ul.nav
                 %li= link_to "Courses", courses_path
-                %li= link_to "Welcome, #{current_user.full_name}", "#"
+            - authenticated? do
+              %ul.nav.pull-right
+                %li= link_to "<strong>#{current_user.full_name}</strong>".html_safe, "#"
                 %li= link_to "Sign out", destroy_user_session_path, :method => :delete
+                %li.dropdown
+                  %a{ href: "#", class: "dropdown-toggle", data: { toggle: "dropdown" } }
+                    Settings
+                    %b.caret
+
+                  %ul.dropdown-menu
+                    %li= link_to "Add Company", "#"
 
     .container
 
       - flash.each do |key, value|
-        .alert{:class => "alert-#{key}"}= value
+        .alert{:class => "alert-#{key}"}
+          %a{ class: "close"} x
+          = value
 
       .content
         .row
@@ -55,9 +67,9 @@
               %h3 Sidebar
               %ul.nav.nav-list
                 %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
+                %li= link_to "My Stack", "#"
+                %li= link_to "Link 2", "#"
+                %li= link_to "Link 3", "#"
     
       %footer
         %p= copywrites 
