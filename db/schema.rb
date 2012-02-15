@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215111949) do
+ActiveRecord::Schema.define(:version => 20120215140718) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -28,8 +35,10 @@ ActiveRecord::Schema.define(:version => 20120215111949) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
     t.integer  "company_id"
+    t.integer  "author_id"
   end
 
+  add_index "courses", ["author_id"], :name => "index_courses_on_author_id"
   add_index "courses", ["company_id"], :name => "index_courses_on_company_id"
 
   create_table "users", :force => true do |t|

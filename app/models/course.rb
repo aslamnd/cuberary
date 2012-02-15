@@ -15,8 +15,10 @@
 class Course < ActiveRecord::Base
 
   belongs_to :company
+  belongs_to :author
 
-  attr_accessible :title, :description, :duration, :released, :company_id
+  attr_accessible :title, :description, :duration, :released, 
+                  :company_id, :author_id
 
   validates :title,           :presence => true
 
