@@ -32,3 +32,6 @@ When /^show me$/ do
   save_and_open_page
 end
 
+When /^I select "([^"]*)" from "([^"]*)"$/ do |option, selectbox|
+  select(option, from: selectbox )
+end

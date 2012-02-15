@@ -20,6 +20,7 @@ describe Course do
   end
 
   describe "relations" do
+    it { should belong_to(:company) }
   end
 
   describe "validations" do

@@ -5,4 +5,7 @@
   = f.input :released, as: :date, start_year: 2003, end_year: Date.today.year, user_month_numbers: true
   = f.input :duration, hint: "e.g. 3h 23m"
 
+  = f.label "Company"
+  = f.collection_select :company_id, Company.all, :id, :name
+
   = f.submit
