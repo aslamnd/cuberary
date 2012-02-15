@@ -40,12 +40,11 @@ describe CoursesController do
     end
 
     context "failure" do
-      before { course_attr.merge!(:title => "") }
-      before { post :create, course: course_attr }
+      before { post :create, course: bad_course }
 
       it "doesn't create a course" do
         expect {
-          post :create, course: course_attr
+          post :create, course: bad_course
         }.to_not change(Course, :count).by(1)
       end
 
