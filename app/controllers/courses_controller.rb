@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :find_course, only: [:show]
+  before_filter :find_course, only: [:show, :edit, :update]
 
   def index
     @courses = Course.all
@@ -20,6 +20,19 @@ class CoursesController < ApplicationController
       redirect_to @course, flash: { success: "Course has been created."}
     else
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @course.update_attributes(params[:course])
+      flash[:success] = "Course has been updated."
+      redirect_to @course
+    else
+      flash[:error] = "Course has not been updated."
+      render 'edit'
     end
   end
 

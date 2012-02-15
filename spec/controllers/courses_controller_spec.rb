@@ -5,6 +5,8 @@ describe CoursesController do
   let(:user) { create_user! }
   let(:course_attr) { Factory.attributes_for(:course) }
   let(:course) { Course.create!(course_attr) }
+  let(:bad_course) { course_attr.merge(:title => "") }
+  let(:good_course) { course_attr.merge(:title => "This is a brand new title") }
 
   before { sign_in(:user, user) }
 
@@ -48,6 +50,37 @@ describe CoursesController do
       end
 
       it { should render_template('new') }
+    end
+  end
+
+  describe "GET edit" do
+    before { get :edit, id: course }
+    it { should respond_with(:success) }
+  end
+
+  describe "PUT update" do
+    context "success" do
+      before { put :update, :id => course, course: good_course }
+
+      it "changes the course attributes" do
+        course.reload
+        course.title.should == good_course[:title]
+      end
+
+      it { should redirect_to( course_path(course) ) }
+      it { should set_the_flash.to(/updated/i) }
+    end
+
+    context "failure" do
+      before { put :update, :id => course, course: bad_course }
+
+      it "doesn't change the course attributes" do
+        course.reload
+        course.title.should_not == bad_course[:title]
+      end
+
+      it { should render_template('edit') }
+      it { should set_the_flash.to(/not been updated/i) }
     end
   end
 

@@ -20,3 +20,9 @@ end
 Given /^I am not authenticated$/ do
   visit destroy_user_session_path
 end
+
+Given /^I signed in as "([^"]*)"$/ do |email|
+  @user = User.find_by_email!(email)
+  @user.password = "password"
+  steps("Given I signed in as them")
+end
