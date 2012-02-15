@@ -83,4 +83,22 @@ describe CoursesController do
     end
   end
 
+  describe "DELETE destroy" do
+
+    before do
+      @course = Factory(:course)
+    end
+
+    it "deletes the course" do
+      expect {
+        delete :destroy, id: @course
+      }.to change(Course, :count).by(-1)
+    end
+
+    it { delete :destroy, id: @course
+         should redirect_to(courses_path) }
+    it { delete :destroy, id: @course 
+         should set_the_flash.to(/deleted/i) }
+  end
+
 end

@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :find_course, only: [:show, :edit, :update]
+  before_filter :find_course, only: [:show, :edit, :update, :destroy]
 
   def index
     @courses = Course.all
@@ -35,6 +35,11 @@ class CoursesController < ApplicationController
       flash[:error] = "Course has not been updated."
       render 'edit'
     end
+  end
+
+  def destroy
+    @course.destroy
+    redirect_to courses_url, flash: { success: "Course has been deleted."}
   end
 
   private
