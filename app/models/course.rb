@@ -9,13 +9,14 @@
 #  released    :datetime
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  company_id  :integer
 #
 
 class Course < ActiveRecord::Base
 
   belongs_to :company
 
-  attr_accessible :title, :description, :duration, :released
+  attr_accessible :title, :description, :duration, :released, :company_id
 
   validates :title,           :presence => true
 

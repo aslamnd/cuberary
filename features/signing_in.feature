@@ -24,5 +24,5 @@ Feature: Signing in
     Then I should see "Signed in successfully."
     And I should not see "Sign up"
     And I should not see "Sign in"
-    And I should see "Welcome, John Smith"
+    And I should see "John Smith"
     And I should see "Sign out"

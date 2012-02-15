@@ -6,7 +6,7 @@
   = f.input :duration, hint: "e.g. 3h 23m"
 
   .input
-    = f.label "Company"
+    = f.label :company_id,  "Company"
     = f.collection_select :company_id, Company.all, :id, :name
 
   = f.submit
