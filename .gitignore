@@ -28,3 +28,4 @@ doc/api
 doc/app
 *.swp
 .sass-cache/*
+rerun.txt
