@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215140718) do
+ActiveRecord::Schema.define(:version => 20120216021706) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120215140718) do
     t.datetime "updated_at",                  :null => false
     t.integer  "company_id"
     t.integer  "author_id"
+    t.integer  "difficulty"
   end
 
   add_index "courses", ["author_id"], :name => "index_courses_on_author_id"

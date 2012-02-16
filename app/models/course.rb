@@ -18,8 +18,19 @@ class Course < ActiveRecord::Base
   belongs_to :author
 
   attr_accessible :title, :description, :duration, :released, 
-                  :company_id, :author_id
+                  :company_id, :author_id, :difficulty
 
   validates :title,           :presence => true
+
+  DIFFICULTY_NAME = { 0 => "All", 1 => "Beginner", 2 => "Intermediate", 3 => "Advanced" }
+
+  def self.difficulty_name_options
+    DIFFICULTY_NAME.to_a.sort
+  end
+
+  def difficulty_name
+    DIFFICULTY_NAME[difficulty]
+  end
+
 
 end

@@ -25,6 +25,7 @@ Feature: Admin creates a course
     And I fill in "Duration" with "3h 30m"
     And I select "Lynda.com" from "Company"
     And I select "Joe Marani" from "Author"
+    And I select "Beginner" from "Difficulty"
     And I press "Create Course"
     Then I should see "Course has been created."
     And I should be on the course page for "CSS Essentials Training"

@@ -17,7 +17,7 @@ require 'spec_helper'
 describe Course do
 
   describe "attributes" do
-    it { should respond_to(:title, :description, :duration, :released) }
+    it { should respond_to(:title, :description, :duration, :released, :difficulty) }
   end
 
   describe "relations" do
