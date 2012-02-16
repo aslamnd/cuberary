@@ -1,4 +1,8 @@
-%h2= @course.title
+%h2
+  = @course.title
+  - if latest_course @course
+    %span.label.label-warning New
+
 %p.author= "by #{@course.author}"
 
 %p

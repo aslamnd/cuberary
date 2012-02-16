@@ -1,5 +1,4 @@
 = link_to "Add New Course", new_course_path, class: "btn btn-success"
 
 %ul#courses
-  - @courses.each do |course|
-    %li.course= link_to course.title, course
+  = render @courses

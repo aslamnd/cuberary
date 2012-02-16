@@ -1,0 +1,4 @@
+%li.course
+  = link_to course.title, course
+  - if latest_course course
+    %span.label.label-warning New

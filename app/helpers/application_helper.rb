@@ -17,7 +17,12 @@ module ApplicationHelper
   end
 
   def display_date(date)
-    date.strftime("%d/%m/%Y")
+    date.strftime("%d/%m/%Y") if date
+  end
+
+  def latest_course(course)
+    month = course.released.month - Time.now.month 
+    month < 4 && course.released.year == Time.now.year
   end
 
 end

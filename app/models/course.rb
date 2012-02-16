@@ -20,6 +20,8 @@ class Course < ActiveRecord::Base
   attr_accessible :title, :description, :duration, :released, 
                   :company_id, :author_id, :difficulty
 
+  default_scope   :order => 'courses.released DESC'
+
   validates :title,           :presence => true
 
   DIFFICULTY_NAME = { 0 => "All", 1 => "Beginner", 2 => "Intermediate", 3 => "Advanced" }
