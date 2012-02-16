@@ -30,4 +30,8 @@ Feature: Admin creates a course
     Then I should see "Course has been created."
     And I should be on the course page for "CSS Essentials Training"
     And I should see "CSS Essentials Training"
-
+    And I should see "by Joe Marani" within ".author"
+    And I should see "This course is super awesome"
+    And I should see "Lynda.com" within ".lynda-com"
+    And I should see "Difficulty: Beginner"
+    And I should see "Duration: 3h 30m"
