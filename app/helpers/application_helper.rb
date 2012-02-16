@@ -16,4 +16,8 @@ module ApplicationHelper
     "&copy; #{year}, #{ link_to 'Aslam Najeebdeen', 'http://aslamnajeebdeen.com' }".html_safe
   end
 
+  def display_date(date)
+    date.strftime("%d/%m/%Y")
+  end
+
 end

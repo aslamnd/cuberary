@@ -5,6 +5,8 @@
   = "Difficulty: #{@course.difficulty_name}"
   |
   = "Duration: #{@course.duration}"
+  |
+  = "Released: #{ display_date(@course.released) }"
 
 %p= @course.description
 
